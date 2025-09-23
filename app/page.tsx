@@ -184,7 +184,7 @@ export default function BillionsHome() {
       <footer className="py-12 sm:py-16 text-center px-4">
         <div className="container mx-auto">
           <p className="text-white/80 font-bold text-sm sm:text-base">
-            © 2025 Billions Playground. Made with <span style={{color:'#0ea5e9'}}>❤️</span> for the community.
+            © 2025 Billions Playground. Made with <span style={{color:'#0ea5e9'}}>💙</span> for the community.
           </p>
         </div>
       </footer>
