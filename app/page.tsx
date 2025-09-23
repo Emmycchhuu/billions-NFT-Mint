@@ -59,8 +59,8 @@ export default function BillionsHome() {
         />
       </div>
 
-      <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[99vw] px-2">
-        <div className="bg-white/95 backdrop-blur-sm rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg overflow-x-auto scrollbar-hide">
+      <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 w-full px-2">
+        <div className="mx-auto w-full max-w-full sm:max-w-xl md:max-w-2xl bg-white/95 backdrop-blur-sm rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg overflow-x-auto scrollbar-hide">
           <div className="flex items-center justify-between sm:justify-center sm:space-x-6 min-w-0">
             <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
               <img src="/logo.png" alt="Billions" className="w-6 h-6 sm:w-8 sm:h-8 flex-shrink-0" />
@@ -72,6 +72,12 @@ export default function BillionsHome() {
                 className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold px-3 sm:px-6 py-1 sm:py-2 rounded-full text-xs sm:text-sm whitespace-nowrap"
               >
                 <Link href="/learn-more">Learn More</Link>
+              </Button>
+              <Button
+                asChild
+                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold px-3 sm:px-6 py-1 sm:py-2 rounded-full text-xs sm:text-sm whitespace-nowrap"
+              >
+                <Link href="/anthem">Anthem</Link>
               </Button>
             </div>
           </div>
@@ -178,7 +184,7 @@ export default function BillionsHome() {
       <footer className="py-12 sm:py-16 text-center px-4">
         <div className="container mx-auto">
           <p className="text-white/80 font-bold text-sm sm:text-base">
-            © 2025 Billions NFT. Made with ❤️ for the community.
+            © 2025 Billions Playground. Made with <span style={{color:'#0ea5e9'}}>❤️</span> for the community.
           </p>
         </div>
       </footer>

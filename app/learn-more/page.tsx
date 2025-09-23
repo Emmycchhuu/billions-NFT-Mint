@@ -33,7 +33,7 @@ export default function LearnMorePage() {
     <div className="min-h-screen bg-gradient-to-br from-cyan-400 via-cyan-500 to-cyan-600 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <img
-          src="/nft-green-polka.png"
+          src="/nft-green-glasses.png"
           alt=""
           className="absolute -top-16 -left-16 w-48 h-48 opacity-10 animate-pulse"
         />
@@ -49,8 +49,8 @@ export default function LearnMorePage() {
         />
       </div>
 
-      <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[99vw] px-2">
-        <div className="bg-white/95 backdrop-blur-sm rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg overflow-x-auto scrollbar-hide">
+      <nav className="fixed top-2 sm:top-4 left-1/2 transform -translate-x-1/2 z-50 w-full px-2">
+        <div className="mx-auto w-full max-w-full sm:max-w-xl md:max-w-2xl bg-white/95 backdrop-blur-sm rounded-full px-2 sm:px-6 py-2 sm:py-3 shadow-lg overflow-x-auto scrollbar-hide">
           <div className="flex items-center justify-between sm:justify-center sm:space-x-6 min-w-0">
             <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
               <Link href="/" className="flex items-center space-x-2 sm:space-x-3 min-w-0">
@@ -64,6 +64,12 @@ export default function LearnMorePage() {
                 className="bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold px-3 sm:px-6 py-1 sm:py-2 rounded-full text-xs sm:text-sm whitespace-nowrap"
               >
                 <Link href="/showcase">Explore</Link>
+              </Button>
+              <Button
+                asChild
+                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold px-3 sm:px-6 py-1 sm:py-2 rounded-full text-xs sm:text-sm whitespace-nowrap"
+              >
+                <Link href="/anthem">Anthem</Link>
               </Button>
             </div>
           </div>
