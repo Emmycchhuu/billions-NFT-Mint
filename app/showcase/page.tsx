@@ -11,7 +11,7 @@ const billionsGenesisList = [
     rarity: "Genesis",
     description: "The rarest crown in the Billions Genesis collection.",
     traits: ["Crown", "Blue", "Royalty"],
-    price: "Ξ 1.00",
+    price: "580.00 WPOL",
   },
   {
     name: "Green Glasses",
@@ -19,7 +19,7 @@ const billionsGenesisList = [
     rarity: "Genesis",
     description: "Cool and mysterious, with a touch of green.",
     traits: ["Glasses", "Green", "Chill"],
-    price: "Ξ 0.75",
+    price: "85.00 WPOL",
   },
   {
     name: "Skull Striped",
@@ -27,7 +27,7 @@ const billionsGenesisList = [
     rarity: "Genesis",
     description: "A bold look for the daring.",
     traits: ["Skull", "Striped", "Bold"],
-    price: "Ξ 0.50",
+    price: "93.00 WPOL",
   },
   {
     name: "Green Polka",
@@ -35,7 +35,7 @@ const billionsGenesisList = [
     rarity: "Genesis",
     description: "Fun and playful polka dots.",
     traits: ["Polka", "Green", "Fun"],
-    price: "Ξ 0.25",
+    price: "400.00 WPOL",
   },
 ]
 export default function ShowcasePage() {
