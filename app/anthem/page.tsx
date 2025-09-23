@@ -112,7 +112,7 @@ export default function AnthemPage() {
         </a>
       </div>
       <p className="text-white/80 font-bold text-sm sm:text-base mt-4">
-        © 2025 Billions Playground. Made with <span style={{color:'#0ea5e9'}}>❤️</span> for the community.
+        © 2025 Billions Playground. Made with <span style={{color:'#0ea5e9'}}>💙</span> for the community.
       </p>
     </div>
   )
