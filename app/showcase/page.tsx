@@ -6,7 +6,7 @@ import Link from "next/link"
 
 const billionsGenesisList = [
   {
-    name: "Billions Genesis #1",
+    name: "Billions Genesis",
     image: "/billions-genesis.png",
     rarity: "Genesis",
     description: "The rarest crown in the Billions Genesis collection.",
@@ -14,7 +14,7 @@ const billionsGenesisList = [
     price: "580.00 WPOL",
   },
   {
-    name: "Billions Genesis #2",
+    name: "Billions Genesis",
     image: "/billions-genesis.png",
     rarity: "Genesis",
     description: "Cool and mysterious, with a touch of green.",
@@ -22,7 +22,7 @@ const billionsGenesisList = [
     price: "85.00 WPOL",
   },
   {
-    name: "Billions Genesis #3",
+    name: "Billions Genesis",
     image: "/billions-genesis.png",
     rarity: "Genesis",
     description: "A bold look for the daring.",
@@ -30,7 +30,7 @@ const billionsGenesisList = [
     price: "93.00 WPOL",
   },
   {
-    name: "Billions Genesis #3",
+    name: "Billions Genesis",
     image: "/billions-genesis.png",
     rarity: "Genesis",
     description: "Fun and playful polka dots.",
