@@ -20,16 +20,21 @@ export default function MusicController() {
       }
     };
 
-    // listen to multiple gestures (click, touch, scroll)
     const opts: AddEventListenerOptions = { once: true };
+
+    // Multiple gesture listeners
     window.addEventListener("click", handleFirstInteraction, opts);
     window.addEventListener("touchstart", handleFirstInteraction, opts);
     window.addEventListener("scroll", handleFirstInteraction, opts);
+    window.addEventListener("touchmove", handleFirstInteraction, opts);
+    window.addEventListener("wheel", handleFirstInteraction, opts);
 
     return () => {
       window.removeEventListener("click", handleFirstInteraction);
       window.removeEventListener("touchstart", handleFirstInteraction);
       window.removeEventListener("scroll", handleFirstInteraction);
+      window.removeEventListener("touchmove", handleFirstInteraction);
+      window.removeEventListener("wheel", handleFirstInteraction);
     };
   }, [activated]);
 
