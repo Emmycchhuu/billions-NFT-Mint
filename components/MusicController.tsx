@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 export default function MusicController() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [activated, setActivated] = useState(false); // track if music is unlocked
+  const [activated, setActivated] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
@@ -20,17 +20,20 @@ export default function MusicController() {
       }
     };
 
-    // only listen until first interaction
-    window.addEventListener("click", handleFirstInteraction, { once: true });
-    window.addEventListener("touchstart", handleFirstInteraction, { once: true });
+    // listen to multiple gestures (click, touch, scroll)
+    const opts: AddEventListenerOptions = { once: true };
+    window.addEventListener("click", handleFirstInteraction, opts);
+    window.addEventListener("touchstart", handleFirstInteraction, opts);
+    window.addEventListener("scroll", handleFirstInteraction, opts);
 
     return () => {
       window.removeEventListener("click", handleFirstInteraction);
       window.removeEventListener("touchstart", handleFirstInteraction);
+      window.removeEventListener("scroll", handleFirstInteraction);
     };
   }, [activated]);
 
-  // Handle play/pause toggle
+  // Play/pause toggle
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -57,14 +60,16 @@ export default function MusicController() {
           >
             {isPlaying ? (
               // Pause icon
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"
+                className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 9v6m4-6v6" />
               </svg>
             ) : (
               // Play icon
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"
+                className="w-5 h-5">
                 <path strokeLinecap="round" strokeLinejoin="round"
                   d="M14.752 11.168l-5.197-3.029A1 1 0 008 9.029v5.942a1 1 0 001.555.832l5.197-3.029a1 1 0 000-1.706z" />
               </svg>
@@ -73,7 +78,7 @@ export default function MusicController() {
         </div>
       </div>
 
-      {/* Hidden audio element */}
+      {/* Hidden audio */}
       <audio
         ref={audioRef}
         src="/Anthem/billions music.mp3"
