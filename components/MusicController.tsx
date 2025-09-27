@@ -3,33 +3,32 @@
 import React, { useState, useRef, useEffect } from "react";
 
 export default function MusicController() {
-  const [isPlaying, setIsPlaying] = useState(false); // start paused for Android safety
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [activated, setActivated] = useState(false); // track if music is unlocked
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
-    if (audioRef.current) {
-      // Start muted autoplay
-      audioRef.current.muted = true;
-      audioRef.current.play().catch(() => {
-        console.log("Muted autoplay failed (waiting for interaction)");
-      });
+    const handleFirstInteraction = () => {
+      if (audioRef.current && !activated) {
+        audioRef.current.muted = false;
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+          setActivated(true);
+        }).catch((err) => {
+          console.log("Playback failed:", err);
+        });
+      }
+    };
 
-      // Unmute and play on first user interaction anywhere
-      const handleInteraction = () => {
-        if (audioRef.current) {
-          audioRef.current.muted = false;
-          audioRef.current.play().catch(() => {});
-          setIsPlaying(true); // music is now active
-        }
-        // remove listeners after first interaction
-        window.removeEventListener("click", handleInteraction);
-        window.removeEventListener("touchstart", handleInteraction);
-      };
+    // only listen until first interaction
+    window.addEventListener("click", handleFirstInteraction, { once: true });
+    window.addEventListener("touchstart", handleFirstInteraction, { once: true });
 
-      window.addEventListener("click", handleInteraction);
-      window.addEventListener("touchstart", handleInteraction);
-    }
-  }, []);
+    return () => {
+      window.removeEventListener("click", handleFirstInteraction);
+      window.removeEventListener("touchstart", handleFirstInteraction);
+    };
+  }, [activated]);
 
   // Handle play/pause toggle
   useEffect(() => {
