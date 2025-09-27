@@ -8,11 +8,24 @@ export default function MusicController() {
 
   useEffect(() => {
     if (audioRef.current) {
-      // Try to autoplay on load
-      audioRef.current.play().catch((err) => {
-        console.log("Autoplay blocked:", err);
-        setIsPlaying(false); // fallback → show play button
+      // Start muted autoplay
+      audioRef.current.muted = true;
+      audioRef.current.play().catch(() => {
+        console.log("Muted autoplay blocked");
       });
+
+      // Unmute + continue on first user interaction
+      const handleInteraction = () => {
+        if (audioRef.current) {
+          audioRef.current.muted = false;
+          audioRef.current.play().catch(() => {});
+        }
+        window.removeEventListener("click", handleInteraction);
+        window.removeEventListener("touchstart", handleInteraction);
+      };
+
+      window.addEventListener("click", handleInteraction);
+      window.addEventListener("touchstart", handleInteraction);
     }
   }, []);
 
@@ -28,7 +41,6 @@ export default function MusicController() {
 
   return (
     <div className="fixed z-[1000] right-4 top-4 sm:top-4 sm:right-4 w-auto flex justify-end">
-      {/* On mobile, move button below header */}
       <div className="w-full flex justify-end sm:justify-end">
         <div className="sm:relative sm:top-0 sm:right-0 absolute top-20 right-4 sm:top-4 sm:right-4">
           <button
