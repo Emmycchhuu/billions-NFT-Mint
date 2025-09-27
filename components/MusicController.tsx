@@ -34,7 +34,7 @@ export default function MusicController() {
             <circle cx="6" cy="18" r="3" stroke="currentColor" strokeWidth={2} />
           </svg>
           {/* Play/Pause indicator */}
-          <span className={`absolute bottom-2 right-2 text-xs font-bold ${isPlaying ? 'text-green-300' : 'text-red-400'}`}>{isPlaying ? 'Playing' : 'Paused'}</span>
+          <span className={`absolute bottom-2 right-2 text-xs font-bold ${isPlaying ? 'text-green-300' : 'text-red-400'}`}>{isPlaying ? '' : ''}</span>
         </button>
       </div>
     </div>
